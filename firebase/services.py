@@ -24,7 +24,7 @@ def get_new_listing_and_views_count(area: str) -> list:
 """ TEST """
 if __name__ == "__main__":
     save_new_listing_and_views_count(
-        "bay_area", {"new_listing_count": 26, "total_views_count": 5534}
+        "bay_area", {"new_listing_count": 27, "total_views_count": 31259}
     )
 
     docs = get_new_listing_and_views_count("bay_area")

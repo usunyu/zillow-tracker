@@ -62,7 +62,10 @@ def fetch_views_count(home_url: str) -> int:
     html_content = fetch_content(home_url)
     soup = BeautifulSoup(html_content, "lxml")
     dt_tags = soup.select("dl > dt")
-    views = dt_tags[2].get_text()
+    if len(dt_tags) == 3:
+        views = dt_tags[1].get_text()
+    elif len(dt_tags) == 6:
+        views = dt_tags[2].get_text()
     views_count = int(views.replace(",", ""))
     return views_count
 
