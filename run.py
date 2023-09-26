@@ -52,6 +52,10 @@ def fetch_home_urls(json_data: dict) -> list[str]:
     for script_tag in script_tags:
         json_content = json.loads(script_tag.string)
         if "url" in json_content:
+            # skip community url
+            if "www.zillow.com/community" in json_content["url"]:
+                result_count -= 1
+                continue
             listing_set.add(json_content["url"])
     listing_urls = list(listing_set)
 
