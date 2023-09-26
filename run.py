@@ -1,9 +1,11 @@
 import time
 import json
 import requests
+import schedule
 from urllib.parse import quote_plus
 from tqdm import tqdm
 from bs4 import BeautifulSoup
+from firebase import services as fb
 from tracking_areas import TRACKING_AREAS
 
 TRACKING_AREA_LIST = ["bay_area"]
@@ -66,29 +68,68 @@ def fetch_views_count(home_url: str) -> int:
         views = dt_tags[1].get_text()
     elif len(dt_tags) == 6:
         views = dt_tags[2].get_text()
-    views_count = int(views.replace(",", ""))
+    try:
+        views_count = int(views.replace(",", ""))
+    except:
+        views_count = 0
+        print(f"Unable to parse the views count from url: {home_url}\n")
+        # for dt_tag in dt_tags:
+        #     print(dt_tag)
     return views_count
 
 
-def main():
-    home_urls = []
+def fetch_new_listings_views_job():
+    # go through each tracking area
     for tracking_area in TRACKING_AREA_LIST:
+        home_urls = []
         tracking_json = TRACKING_AREAS[tracking_area]
         print(f"Fetching {tracking_json['title']} listing urls...")
         for json_data in tqdm(tracking_json["listing"]):
             listing_urls = fetch_home_urls(json_data)
             home_urls += listing_urls
-    print(f"Fetched total listing urls: {len(home_urls)}")
+        print(f"Fetched total listing urls: {len(home_urls)}\n")
 
-    total_views = 0
-    for home_url in tqdm(home_urls):
-        views_count = fetch_views_count(home_url)
-        total_views += views_count
-    print(f"Total views count: {total_views}")
+        total_views = 0
+        fetch_views_failed = False
+        # for home_url in tqdm(home_urls):
+        for home_url in home_urls:
+            views_count = 0
+            retry_count = 0
+            # retry 3
+            while views_count == 0 and retry_count < 3:
+                views_count = fetch_views_count(home_url)
+                retry_count += 1
+            if views_count == 0:
+                fetch_views_failed = True
+                break
+            total_views += views_count
+            print(f"{home_url}, views: {views_count}\n")
+        print(f"Total views count: {total_views}\n")
+
+        if not fetch_views_failed:
+            upload_data = {
+                "new_listings_count": len(home_urls),
+                "total_views_count": total_views,
+            }
+            print(f"Upload data to firebase: {upload_data}\n")
+            # upload to firebase
+            fb.save_new_listings_and_views_count(
+                tracking_area,
+                {
+                    "new_listings_count": len(home_urls),
+                    "total_views_count": total_views,
+                },
+            )
+        else:
+            print(f"Skip upload data to firebase...\n")
 
 
 if __name__ == "__main__":
     try:
-        main()
+        schedule.every(30).minutes.do(fetch_new_listings_views_job)
+
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
     except KeyboardInterrupt:
         pass
