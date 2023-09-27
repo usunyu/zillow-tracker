@@ -31,7 +31,7 @@ def fetch_content(url: str) -> str:
     return response.text
 
 
-def fetch_home_urls(json_data: dict) -> list[str]:
+def fetch_home_urls(json_data: dict) -> list:
     query_json = json_data["search_query"]
     query_string = json.dumps(query_json)
     encoded_query = quote_plus(query_string)
