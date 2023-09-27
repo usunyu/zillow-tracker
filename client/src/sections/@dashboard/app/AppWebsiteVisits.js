@@ -25,8 +25,12 @@ export default function AppWebsiteVisits({ title, subheader, chartLabels, chartD
       intersect: false,
       y: {
         formatter: (y) => {
+          let units = 'visits';
+          if (other.units) {
+            units = other.units;
+          }
           if (typeof y !== 'undefined') {
-            return `${y.toFixed(0)} visits`;
+            return `${y.toFixed(0)} ${units}`;
           }
           return y;
         },

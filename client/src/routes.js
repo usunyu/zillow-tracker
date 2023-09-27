@@ -9,17 +9,27 @@ import LoginPage from './pages/LoginPage';
 import Page404 from './pages/Page404';
 import ProductsPage from './pages/ProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
+import TrackingPage from './pages/TrackingPage';
 
 // ----------------------------------------------------------------------
 
 export default function Router() {
   const routes = useRoutes([
     {
-      path: '/',
+      path: '/tracking',
       element: <DashboardLayout />,
       children: [
-        { element: <Navigate to="/" />, index: true },
-        { path: 'bay-area', element: <DashboardAppPage /> },
+        { element: <Navigate to="/tracking/bay-area" />, index: true },
+        {
+          path: 'bay-area',
+          element: (
+            <TrackingPage
+              area="bay_area"
+              title="Bay Area"
+              description="Including Zip Codes: 94116, 94131, 94132, 94127, 94112, 94134, 94015, 94014, 94005, 94080, 94044, 94066, 94128, 94030, 94010, 94401, 94404, 94403, 94402."
+            />
+          ),
+        },
       ],
     },
     {
@@ -40,7 +50,7 @@ export default function Router() {
     {
       element: <SimpleLayout />,
       children: [
-        { element: <Navigate to="/dashboard/app" />, index: true },
+        { element: <Navigate to="/tracking/bay-area" />, index: true },
         { path: '404', element: <Page404 /> },
         { path: '*', element: <Navigate to="/404" /> },
       ],
