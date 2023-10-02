@@ -4,7 +4,6 @@ TRACKING_AREAS = {
         "listing": [
             {
                 "zip_code": 92602,
-                "base_url": "https://www.zillow.com/irvine-ca-92602/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -33,7 +32,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 92603,
-                "base_url": "https://www.zillow.com/irvine-ca-92603/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -62,7 +60,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 92604,
-                "base_url": "https://www.zillow.com/irvine-ca-92604/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -91,7 +88,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 92612,
-                "base_url": "https://www.zillow.com/irvine-ca-92612/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -122,7 +118,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 92614,
-                "base_url": "https://www.zillow.com/irvine-ca-92614/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -151,7 +146,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 92618,
-                "base_url": "https://www.zillow.com/irvine-ca-92618/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -180,7 +174,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 92620,
-                "base_url": "https://www.zillow.com/irvine-ca-92620/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -216,7 +209,6 @@ TRACKING_AREAS = {
         "listing": [
             {
                 "zip_code": 94116,
-                "base_url": "https://www.zillow.com/san-francisco-ca-94116/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -247,7 +239,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94131,
-                "base_url": "https://www.zillow.com/san-francisco-ca-94131/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -278,7 +269,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94132,
-                "base_url": "https://www.zillow.com/san-francisco-ca-94132/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -309,7 +299,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94127,
-                "base_url": "https://www.zillow.com/san-francisco-ca-94127/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -340,7 +329,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94112,
-                "base_url": "https://www.zillow.com/san-francisco-ca-94112/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -371,7 +359,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94134,
-                "base_url": "https://www.zillow.com/san-francisco-ca-94134/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -402,7 +389,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94015,
-                "base_url": "https://www.zillow.com/daly-city-ca-94015/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -433,7 +419,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94014,
-                "base_url": "https://www.zillow.com/daly-city-ca-94014/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -464,7 +449,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94005,
-                "base_url": "https://www.zillow.com/brisbane-ca-94005/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -495,7 +479,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94080,
-                "base_url": "https://www.zillow.com/south-san-francisco-ca-94080/?searchQueryState=",
                 "search_query": {
                     "pagination": {},
                     "usersSearchTerm": "",
@@ -526,7 +509,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94044,
-                "base_url": "https://www.zillow.com/pacifica-ca-94044/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -557,7 +539,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94066,
-                "base_url": "https://www.zillow.com/san-bruno-ca-94066/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -588,7 +569,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94128,
-                "base_url": "https://www.zillow.com/ca-94128/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -619,7 +599,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94030,
-                "base_url": "https://www.zillow.com/pacifica-ca-94030/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -650,7 +629,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94010,
-                "base_url": "https://www.zillow.com/burlingame-ca-94010/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -681,7 +659,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94401,
-                "base_url": "https://www.zillow.com/san-mateo-ca-94401/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -712,7 +689,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94404,
-                "base_url": "https://www.zillow.com/san-mateo-ca-94404/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -743,7 +719,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94403,
-                "base_url": "https://www.zillow.com/san-mateo-ca-94403/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {
@@ -774,7 +749,6 @@ TRACKING_AREAS = {
             },
             {
                 "zip_code": 94402,
-                "base_url": "https://www.zillow.com/san-mateo-ca-94402/?searchQueryState=",
                 "search_query": {
                     "usersSearchTerm": "",
                     "mapBounds": {

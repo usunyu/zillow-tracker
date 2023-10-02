@@ -6,6 +6,7 @@ if __name__ == "__main__":
     home_urls = []
     print(f"Fetching {tracking_json['title']} listing urls...")
     for json_data in tracking_json["listing"]:
+        print(f"[zip code]: {json_data['zip_code']}")
         listing_urls = zillow_sdk.fetch_home_urls(json_data, debug=True)
         home_urls += listing_urls
         print()
