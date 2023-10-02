@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 // firestore
 import { collection, query, getDocs, limit, orderBy } from 'firebase/firestore';
@@ -13,7 +14,14 @@ import { AppWebsiteVisits } from '../sections/@dashboard/app';
 
 const FETCH_LIMIT = 500;
 
-export default function TrackingPage({ area, title, description }) {
+TrackingPage.propTypes = {
+  area: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  description2: PropTypes.string,
+};
+
+export default function TrackingPage({ area, title, description, description2 }) {
   const [newListingsAndViewsCountData, setNewListingsAndViewsCountData] = useState([]);
 
   const fetchNewListingsAndViewsCount = async () => {
@@ -51,7 +59,8 @@ export default function TrackingPage({ area, title, description }) {
           {title}
         </Typography>
 
-        <Typography sx={{ color: 'text.secondary', mb: 3 }}>{description}</Typography>
+        <Typography sx={{ color: 'text.secondary' }}>{description}</Typography>
+        <Typography sx={{ color: 'text.secondary', mb: 3 }}>{description2}</Typography>
 
         <Grid container spacing={3}>
           <Grid item xs={12} md={12} lg={12}>
