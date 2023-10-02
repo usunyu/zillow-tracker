@@ -2,7 +2,7 @@ import zillow_sdk
 from tracking_areas import TRACKING_AREAS
 
 if __name__ == "__main__":
-    tracking_json = TRACKING_AREAS["bay_area"]
+    tracking_json = TRACKING_AREAS["irvine"]
     home_urls = []
     print(f"Fetching {tracking_json['title']} listing urls...")
     for json_data in tracking_json["listing"]:

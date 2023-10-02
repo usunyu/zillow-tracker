@@ -46,7 +46,9 @@ def fetch_home_urls(json_data: dict, debug: bool = False) -> list:
     total_count = data["cat1"]["searchList"]["totalResultCount"]
     total_pages = data["cat1"]["searchList"]["totalPages"]
     if debug:
-        print(f"[total_count]: {total_count}, [total_pages]: {total_pages}")
+        print(
+            f"[total_count]: {total_count}, [total_pages]: {total_pages}, [results_count]: {len(results)}"
+        )
     home_urls = []
     result_count = total_count
     for detail in results:

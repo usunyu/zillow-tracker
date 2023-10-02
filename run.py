@@ -7,7 +7,7 @@ import zillow_sdk
 
 TRACKING_AREA_LIST = [
     "bay_area",
-    # "irvine",
+    "irvine",
 ]
 
 
@@ -24,8 +24,8 @@ def fetch_new_listings_views_job():
 
         total_views = 0
         fetch_views_failed = False
-        # for home_url in tqdm(home_urls):
-        for home_url in home_urls:
+        print(f"Fetching {tracking_json['title']} views count...")
+        for home_url in tqdm(home_urls):
             views_count = 0
             retry_count = 0
             # retry 3
@@ -36,7 +36,7 @@ def fetch_new_listings_views_job():
                 fetch_views_failed = True
                 break
             total_views += views_count
-            print(f"{home_url}, views: {views_count}\n")
+            # print(f"{home_url}, views: {views_count}\n")
         print(f"Total views count: {total_views}\n")
 
         if not fetch_views_failed:
@@ -44,7 +44,7 @@ def fetch_new_listings_views_job():
                 "new_listings_count": len(home_urls),
                 "total_views_count": total_views,
             }
-            print(f"Upload data to firebase: {upload_data}\n")
+            print(f"Upload data to firebase [{tracking_area}]: {upload_data}\n")
             # upload to firebase
             fb.save_new_listings_and_views_count(
                 tracking_area,
