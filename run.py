@@ -58,12 +58,11 @@ def fetch_new_listings_views_job():
 
 
 if __name__ == "__main__":
-    fetch_new_listings_views_job()
-    # try:
-    #     schedule.every(30).minutes.do(fetch_new_listings_views_job)
+    try:
+        schedule.every(30).minutes.do(fetch_new_listings_views_job)
 
-    #     while True:
-    #         schedule.run_pending()
-    #         time.sleep(1)
-    # except KeyboardInterrupt:
-    #     pass
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
+    except KeyboardInterrupt:
+        pass
