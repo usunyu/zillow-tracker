@@ -9,8 +9,8 @@ def test_home_urls_count():
     print(f"Fetching {tracking_json['title']} listing urls...")
     for json_data in tracking_json["listing"]:
         zip_code = json_data["zip_code"]
-        if zip_code != 94134:
-            continue
+        # if zip_code != 94134:
+        #     continue
         print(f"[zip code]: {zip_code}")
         listing_urls = zillow_sdk.fetch_home_urls(json_data, debug=True)
         home_urls += listing_urls
@@ -37,7 +37,7 @@ def test_auction_listing():
 
 if __name__ == "__main__":
     try:
-        # test_home_urls_count()
-        test_auction_listing()
+        test_home_urls_count()
+        # test_auction_listing()
     except KeyboardInterrupt:
         pass
