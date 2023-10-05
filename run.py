@@ -50,7 +50,9 @@ def fetch_new_listings_views_job():
         print(f"Total views count: {total_views}")
 
         listings_count = len(home_urls) - len(auction_urls)
-        print(f"Filtered total listings count: {listings_count}")
+        print(
+            f"Filtered total listings count: {listings_count}, auction count: {len(auction_urls)}"
+        )
         if not fetch_views_failed:
             upload_data = {
                 "new_listings_count": listings_count,
