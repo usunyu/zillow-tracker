@@ -36,5 +36,8 @@ def test_auction_listing():
 
 
 if __name__ == "__main__":
-    # test_home_urls_count()
-    test_auction_listing()
+    try:
+        # test_home_urls_count()
+        test_auction_listing()
+    except KeyboardInterrupt:
+        pass

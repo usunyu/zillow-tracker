@@ -1,5 +1,5 @@
 import time
-import inquirer
+import click
 import schedule
 from tqdm import tqdm
 from firebase import services as fb
@@ -63,25 +63,17 @@ def fetch_new_listings_views_job():
             print(f"Skip upload data to firebase...")
 
 
-def run():
-    questions = [
-        inquirer.List(
-            "mode",
-            message="Plese select execute mode",
-            choices=["schedule", "onetime"],
-        ),
-    ]
-    answers = inquirer.prompt(questions)
+@click.command()
+@click.option("--mode", type=click.Choice(["schedule", "onetime"]), prompt=True)
+def run(mode):
+    if mode == "onetime":
+        fetch_new_listings_views_job()
+    elif mode == "schedule":
+        schedule.every(30).minutes.do(fetch_new_listings_views_job)
 
-    if answers:
-        if answers["mode"] == "onetime":
-            fetch_new_listings_views_job()
-        elif answers["mode"] == "schedule":
-            schedule.every(30).minutes.do(fetch_new_listings_views_job)
-
-            while True:
-                schedule.run_pending()
-                time.sleep(1)
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
 
 
 if __name__ == "__main__":
