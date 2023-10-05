@@ -1,9 +1,7 @@
 import time
-import json
 import httpx
 import requests
 from urllib.parse import urlencode
-from urllib.parse import quote_plus
 from bs4 import BeautifulSoup
 
 BASE_URL = "https://www.zillow.com/search/GetSearchPageState.htm?"
@@ -47,7 +45,7 @@ def fetch_home_urls(json_data: dict, debug: bool = False) -> list:
     total_pages = data["cat1"]["searchList"]["totalPages"]
     if debug:
         print(
-            f"[total_count]: {total_count}, [total_pages]: {total_pages}, [results_count]: {len(results)}"
+            f"[results_count]: {len(results)}, [total_count]: {total_count}, [total_pages]: {total_pages}"
         )
     home_urls = []
     result_count = total_count
@@ -75,8 +73,7 @@ def fetch_home_urls(json_data: dict, debug: bool = False) -> list:
     return home_urls
 
 
-def fetch_views_count(home_url: str) -> int:
-    html_content = fetch_content(home_url)
+def get_views_count(html_content: str, home_url: str = None) -> int:
     soup = BeautifulSoup(html_content, "lxml")
     dt_tags = soup.select("dl > dt")
     if len(dt_tags) == 3:
@@ -91,3 +88,14 @@ def fetch_views_count(home_url: str) -> int:
         # for dt_tag in dt_tags:
         #     print(dt_tag)
     return views_count
+
+
+def check_is_auction(html_content: str, home_url: str = None) -> bool:
+    soup = BeautifulSoup(html_content, "lxml")
+    span_tags = soup.find_all("span")
+    is_auction = False
+    for span in span_tags:
+        if span.text == "Auction":
+            is_auction = True
+            break
+    return is_auction

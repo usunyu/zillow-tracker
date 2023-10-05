@@ -1,4 +1,5 @@
 import time
+import inquirer
 import schedule
 from tqdm import tqdm
 from firebase import services as fb
@@ -20,49 +21,71 @@ def fetch_new_listings_views_job():
         for json_data in tqdm(tracking_json["listing"]):
             listing_urls = zillow_sdk.fetch_home_urls(json_data)
             home_urls += listing_urls
-        print(f"Fetched total listing urls: {len(home_urls)}\n")
+        print(f"Fetched total listing urls: {len(home_urls)}")
 
         total_views = 0
         fetch_views_failed = False
         print(f"Fetching {tracking_json['title']} views count...")
+        auction_urls = []
         for home_url in tqdm(home_urls):
+            html_content = zillow_sdk.fetch_content(home_url)
+            # check is auction
+            is_auction = zillow_sdk.check_is_auction(html_content)
+            # skip auction
+            if is_auction:
+                auction_urls.append(home_url)
+                continue
+
             views_count = 0
             retry_count = 0
             # retry 3
             while views_count == 0 and retry_count < 3:
-                views_count = zillow_sdk.fetch_views_count(home_url)
+                views_count = zillow_sdk.get_views_count(html_content, home_url)
                 retry_count += 1
             if views_count == 0:
                 fetch_views_failed = True
                 break
             total_views += views_count
-            # print(f"{home_url}, views: {views_count}\n")
-        print(f"Total views count: {total_views}\n")
+            # print(f"{home_url}, views: {views_count}")
+        print(f"Total views count: {total_views}")
 
+        listings_count = len(home_urls) - len(auction_urls)
+        print(f"Filtered total listings count: {listings_count}")
         if not fetch_views_failed:
             upload_data = {
-                "new_listings_count": len(home_urls),
+                "new_listings_count": listings_count,
                 "total_views_count": total_views,
             }
-            print(f"Upload data to firebase [{tracking_area}]: {upload_data}\n")
+            print(f"Upload data to firebase [{tracking_area}]: {upload_data}")
             # upload to firebase
-            fb.save_new_listings_and_views_count(
-                tracking_area,
-                {
-                    "new_listings_count": len(home_urls),
-                    "total_views_count": total_views,
-                },
-            )
+            fb.save_new_listings_and_views_count(tracking_area, upload_data)
         else:
-            print(f"Skip upload data to firebase...\n")
+            print(f"Skip upload data to firebase...")
+
+
+def run():
+    questions = [
+        inquirer.List(
+            "mode",
+            message="Plese select execute mode",
+            choices=["schedule", "onetime"],
+        ),
+    ]
+    answers = inquirer.prompt(questions)
+
+    if answers:
+        if answers["mode"] == "onetime":
+            fetch_new_listings_views_job()
+        elif answers["mode"] == "schedule":
+            schedule.every(30).minutes.do(fetch_new_listings_views_job)
+
+            while True:
+                schedule.run_pending()
+                time.sleep(1)
 
 
 if __name__ == "__main__":
     try:
-        schedule.every(30).minutes.do(fetch_new_listings_views_job)
-
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
+        run()
     except KeyboardInterrupt:
         pass
