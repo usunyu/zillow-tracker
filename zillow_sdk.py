@@ -64,9 +64,7 @@ def fetch_home_urls(json_data: dict, debug: bool = False) -> list:
             print(url)
     if result_count != len(home_urls):
         print("Result count not match with fetched urls!")
-        print(f"result_count: {result_count}, fetched: {len(home_urls)}")
-        if debug:
-            print(f"*** [fetch url]: ***\n{fetch_url}")
+        print(f"result_count: {result_count}, fetched: {len(home_urls)}\n{fetch_url}")
     else:
         if debug:
             print("[fetch home urls]: success")
