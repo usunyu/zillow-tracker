@@ -66,7 +66,11 @@ def run(mode):
     if mode == "onetime":
         fetch_new_listings_views_job()
     elif mode == "schedule":
-        schedule.every(60).minutes.do(fetch_new_listings_views_job)
+        # simulator a human schedule
+        schedule.every().day.at("8:30").do(fetch_new_listings_views_job)
+        schedule.every().day.at("12:15").do(fetch_new_listings_views_job)
+        schedule.every().day.at("18:30").do(fetch_new_listings_views_job)
+        schedule.every().day.at("22:15").do(fetch_new_listings_views_job)
 
         while True:
             schedule.run_pending()
