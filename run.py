@@ -36,12 +36,7 @@ def fetch_new_listings_views_job():
                 auction_urls.append(home_url)
                 continue
 
-            views_count = 0
-            retry_count = 0
-            # retry 3
-            while views_count == 0 and retry_count < 3:
-                views_count = zillow_sdk.get_views_count(html_content, home_url)
-                retry_count += 1
+            views_count = zillow_sdk.get_views_count(html_content, home_url)
             if views_count == 0:
                 fetch_views_failed = True
                 break
