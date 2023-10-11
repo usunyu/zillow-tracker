@@ -71,7 +71,7 @@ def run(mode):
     if mode == "onetime":
         fetch_new_listings_views_job()
     elif mode == "schedule":
-        schedule.every(30).minutes.do(fetch_new_listings_views_job)
+        schedule.every(60).minutes.do(fetch_new_listings_views_job)
 
         while True:
             schedule.run_pending()

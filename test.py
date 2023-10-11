@@ -19,8 +19,7 @@ def test_home_urls_count():
 
 
 def test_auction_listing():
-    # url = "https://www.zillow.com/homedetails/448-Wilde-Ave-San-Francisco-CA-94134/15172934_zpid/"
-    url = "https://www.zillow.com/homedetails/339-Sweeny-St-San-Francisco-CA-94134/15165670_zpid/"
+    url = "https://www.zillow.com/homedetails/2562-35th-Ave-San-Francisco-CA-94116/15123878_zpid/"
     html_content = zillow_sdk.fetch_content(url)
     soup = BeautifulSoup(html_content, "lxml")
     span_tags = soup.find_all("span")
@@ -35,9 +34,17 @@ def test_auction_listing():
         print("Not Auction")
 
 
+def test_views_count():
+    url = "https://www.zillow.com/homedetails/2562-35th-Ave-San-Francisco-CA-94116/15123878_zpid/"
+    html_content = zillow_sdk.fetch_content(url)
+    views_count = zillow_sdk.get_views_count(html_content, url)
+    print(f"Views: {views_count}")
+
+
 if __name__ == "__main__":
     try:
-        test_home_urls_count()
+        # test_home_urls_count()
         # test_auction_listing()
+        test_views_count()
     except KeyboardInterrupt:
         pass
