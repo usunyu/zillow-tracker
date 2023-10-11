@@ -35,7 +35,7 @@ def test_auction_listing():
 
 
 def test_views_count():
-    url = "https://www.zillow.com/homedetails/2562-35th-Ave-San-Francisco-CA-94116/15123878_zpid/"
+    url = "https://www.zillow.com/homedetails/22-Butler-Rd-South-San-Francisco-CA-94080/15484126_zpid/"
     html_content = zillow_sdk.fetch_content(url)
     views_count = zillow_sdk.get_views_count(html_content, url)
     print(f"Views: {views_count}")
