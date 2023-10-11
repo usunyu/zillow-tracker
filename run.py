@@ -67,7 +67,7 @@ def run(mode):
         fetch_new_listings_views_job()
     elif mode == "schedule":
         # simulator a human schedule
-        schedule.every().day.at("8:30").do(fetch_new_listings_views_job)
+        schedule.every().day.at("08:30").do(fetch_new_listings_views_job)
         schedule.every().day.at("12:15").do(fetch_new_listings_views_job)
         schedule.every().day.at("18:30").do(fetch_new_listings_views_job)
         schedule.every().day.at("22:15").do(fetch_new_listings_views_job)
