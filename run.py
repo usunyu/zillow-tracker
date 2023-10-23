@@ -24,7 +24,7 @@ def fetch_new_listings_views_job():
         print(f"Fetched total listing urls: {len(home_urls)}")
 
         total_views = 0
-        fetch_views_failed = False
+        fetch_views_failed = 0
         print(f"Fetching {tracking_json['title']} views count...")
         auction_urls = []
         for home_url in tqdm(home_urls):
@@ -38,8 +38,7 @@ def fetch_new_listings_views_job():
 
             views_count = zillow_sdk.get_views_count(html_content, home_url)
             if views_count == 0:
-                fetch_views_failed = True
-                break
+                fetch_views_failed += 1
             total_views += views_count
             # print(f"{home_url}, views: {views_count}")
         print(f"Total views count: {total_views}")
@@ -48,16 +47,13 @@ def fetch_new_listings_views_job():
         print(
             f"Filtered total listings count: {listings_count}, auction count: {len(auction_urls)}"
         )
-        if not fetch_views_failed:
-            upload_data = {
-                "new_listings_count": listings_count,
-                "total_views_count": total_views,
-            }
-            print(f"Upload data to firebase [{tracking_area}]: {upload_data}")
-            # upload to firebase
-            fb.save_new_listings_and_views_count(tracking_area, upload_data)
-        else:
-            print(f"Skip upload data to firebase...")
+        upload_data = {
+            "new_listings_count": listings_count - fetch_views_failed,
+            "total_views_count": total_views,
+        }
+        print(f"Upload data to firebase [{tracking_area}]: {upload_data}")
+        # upload to firebase
+        fb.save_new_listings_and_views_count(tracking_area, upload_data)
 
 
 @click.command()
