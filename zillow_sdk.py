@@ -3,6 +3,7 @@ import random
 import requests
 from urllib.parse import urlencode
 from bs4 import BeautifulSoup
+from utils import print_msg
 
 BASE_URL = "https://www.zillow.com/search/GetSearchPageState.htm?"
 
@@ -51,7 +52,7 @@ def fetch_home_urls(json_data: dict, debug: bool = False) -> list:
     total_count = data["cat1"]["searchList"]["totalResultCount"]
     total_pages = data["cat1"]["searchList"]["totalPages"]
     if debug:
-        print(
+        print_msg(
             f"[results_count]: {len(results)}, [total_count]: {total_count}, [total_pages]: {total_pages}"
         )
     home_urls = []
@@ -61,20 +62,22 @@ def fetch_home_urls(json_data: dict, debug: bool = False) -> list:
         if "www.zillow.com/community" in home_url:
             result_count -= 1
             if debug:
-                print(f"[found community url]: {home_url}")
-                print(f"[update result count]: {result_count}")
+                print_msg(f"[found community url]: {home_url}")
+                print_msg(f"[update result count]: {result_count}")
             continue
         home_urls.append(home_url)
     if debug:
-        print("[home urls]:")
+        print_msg("[home urls]:")
         for url in home_urls:
-            print(url)
+            print_msg(url)
     if result_count != len(home_urls):
-        print("Result count not match with fetched urls!")
-        print(f"result_count: {result_count}, fetched: {len(home_urls)}\n{fetch_url}")
+        print_msg("Result count not match with fetched urls!")
+        print_msg(
+            f"result_count: {result_count}, fetched: {len(home_urls)}\n{fetch_url}"
+        )
     else:
         if debug:
-            print("[fetch home urls]: success")
+            print_msg("[fetch home urls]: success")
     return home_urls
 
 
@@ -89,9 +92,9 @@ def get_views_count(html_content: str, home_url: str = None) -> int:
         views_count = int(views.replace(",", ""))
     except:
         views_count = 0
-        print(f"Unable to parse the views count from url: {home_url}\n")
+        print_msg(f"Unable to parse the views count from url: {home_url}\n")
         # for dt_tag in dt_tags:
-        #     print(dt_tag)
+        #     print_msg(dt_tag)
     return views_count
 
 

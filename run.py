@@ -4,6 +4,7 @@ import schedule
 from tqdm import tqdm
 from firebase import services as fb
 from tracking_areas import TRACKING_AREAS
+from utils import print_msg
 import zillow_sdk
 
 TRACKING_AREA_LIST = [
@@ -17,15 +18,15 @@ def fetch_new_listings_views_job():
     for tracking_area in TRACKING_AREA_LIST:
         home_urls = []
         tracking_json = TRACKING_AREAS[tracking_area]
-        print(f"Fetching {tracking_json['title']} listing urls...")
+        print_msg(f"Fetching {tracking_json['title']} listing urls...")
         for json_data in tqdm(tracking_json["listing"]):
             listing_urls = zillow_sdk.fetch_home_urls(json_data)
             home_urls += listing_urls
-        print(f"Fetched total listing urls: {len(home_urls)}")
+        print_msg(f"Fetched total listing urls: {len(home_urls)}")
 
         total_views = 0
         fetch_views_failed = 0
-        print(f"Fetching {tracking_json['title']} views count...")
+        print_msg(f"Fetching {tracking_json['title']} views count...")
         auction_urls = []
         for home_url in tqdm(home_urls):
             html_content = zillow_sdk.fetch_content(home_url)
@@ -40,18 +41,18 @@ def fetch_new_listings_views_job():
             if views_count == 0:
                 fetch_views_failed += 1
             total_views += views_count
-            # print(f"{home_url}, views: {views_count}")
-        print(f"Total views count: {total_views}")
+            # print_msg(f"{home_url}, views: {views_count}")
+        print_msg(f"Total views count: {total_views}")
 
         listings_count = len(home_urls) - len(auction_urls)
-        print(
+        print_msg(
             f"Filtered total listings count: {listings_count}, auction count: {len(auction_urls)}"
         )
         upload_data = {
             "new_listings_count": listings_count - fetch_views_failed,
             "total_views_count": total_views,
         }
-        print(f"Upload data to firebase [{tracking_area}]: {upload_data}")
+        print_msg(f"Upload data to firebase [{tracking_area}]: {upload_data}")
         # upload to firebase
         fb.save_new_listings_and_views_count(tracking_area, upload_data)
 
