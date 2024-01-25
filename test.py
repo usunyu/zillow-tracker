@@ -43,8 +43,8 @@ def test_views_count():
 
 if __name__ == "__main__":
     try:
-        # test_home_urls_count()
+        test_home_urls_count()
         # test_auction_listing()
-        test_views_count()
+        # test_views_count()
     except KeyboardInterrupt:
         pass

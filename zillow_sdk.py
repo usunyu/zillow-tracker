@@ -13,7 +13,7 @@ BASE_HEADERS = {
     "Accept-Encoding": "gzip, deflate, br",
     "Accept-Language": "en-US,en;q=0.9,zh-CN;q=0.8,zh-TW;q=0.7,zh;q=0.6",
     "Cache-Control": "max-age=0",
-    "Cookie": "zguid=24|%2454742c34-784c-4577-affc-1142d3ec37ad; _ga=GA1.2.316644807.1695510265; zjs_anonymous_id=%2254742c34-784c-4577-affc-1142d3ec37ad%22; zjs_user_id=null; zg_anonymous_id=%22876ad884-3ce7-400d-91d8-a50ce492a07b%22; _gcl_au=1.1.857535933.1695510265; _pxvid=89f92519-5a65-11ee-b80e-1bfbd30aa557; __pdst=832fc926c5394551b90e92e28f55e973; _pin_unauth=dWlkPU9UZGlaV016WkRVdE1XVmxPQzAwWlRjd0xXRm1Nakl0TWpBNE1XSTFPRGs1WTJJNA; _cs_c=0; _cs_id=233648d7-1680-a2b1-fa09-ee81d75368fa.1695510849.1.1695511483.1695510849.1.1729674849675; _gac_UA-21174015-56=1.1696214508.CjwKCAjwseSoBhBXEiwA9iZtxqLj4d079H4GnZUzx43r9IlJbyF03vkprcpBFDZw1lsqCiqVMZ3pqBoCFyAQAvD_BwE; _gcl_aw=GCL.1696214508.CjwKCAjwseSoBhBXEiwA9iZtxqLj4d079H4GnZUzx43r9IlJbyF03vkprcpBFDZw1lsqCiqVMZ3pqBoCFyAQAvD_BwE; search=6|1701037188829%7Crect%3D37.749364187468444%252C-122.3914230472412%252C37.69444021829437%252C-122.49184495275878%26rid%3D97567%26disp%3Dmap%26mdm%3Dauto%26p%3D1%26sort%3Ddays%26z%3D1%26listPriceActive%3D1%26days%3D30%26type%3Dhouse%252Cmultifamily%26price%3D0-1250000%26mp%3D0-6930%26fs%3D0%26fr%3D0%26mmm%3D0%26rs%3D1%26ah%3D0%26singlestory%3D0%26housing-connector%3D0%26abo%3D0%26garage%3D0%26pool%3D0%26ac%3D0%26waterfront%3D0%26finished%3D0%26unfinished%3D0%26cityview%3D0%26mountainview%3D0%26parkview%3D0%26waterview%3D0%26hoadata%3D1%26zillow-owned%3D0%263dhome%3D0%26featuredMultiFamilyBuilding%3D0%26commuteMode%3Ddriving%26commuteTimeOfDay%3Dnow%09%0997567%09%7B%22isList%22%3Atrue%2C%22isMap%22%3Atrue%7D%09%09%09%09%09; x-amz-continuous-deployment-state=AYABeAfaO%2FmRbD9ABpU8Hki%2FEdwAPgACAAFEAB1kM2Jsa2Q0azB3azlvai5jbG91ZGZyb250Lm5ldAABRwAVRzA3MjU1NjcyMVRZRFY4RDcyVlpWAAEAAkNEABpDb29raWUAAACAAAAADDgTvuNYIQGbGvF%2FnwAwrPQEKKOkVSvQJ3eyO3FW3e4vcQyqaoVPUkgg87l6o0xzrBkesxfo2jC6gSyUFVM1AgAAAAAMAAQAAAAAAAAAAAAAAAAAAAGqFKHWnOoG7IC56m9h7n7%2F%2F%2F%2F%2FAAAAAQAAAAAAAAAAAAAAAQAAAAz+VVf2wbrEsQ1xpftPG%2FNIf6pRyW4dy+fh+SH2NIf6pRyW4dy+fh+SHw==; _pxff_cc=U2FtZVNpdGU9TGF4Ow==; pxcts=29ce86e7-889b-11ee-b118-4dc8a5926211; _pxff_rf=1; _pxff_fp=1; _pxff_cfp=1; _pxff_bsco=1; zgsession=1|8bc5d985-8423-4167-b1b8-e730f8a29125; _gid=GA1.2.1729537383.1700591107; DoubleClickSession=true; _gat=1; _uetsid=4c058930889b11eeba931d8cef87f630; _uetvid=8ba7eb005a6511eebca6e381cf8ef374; _hp2_id.1215457233=%7B%22userId%22%3A%224023631568943192%22%2C%22pageviewId%22%3A%222162112454410282%22%2C%22sessionId%22%3A%221761690463337622%22%2C%22identity%22%3Anull%2C%22trackerVersion%22%3A%224.0%22%7D; _hp2_ses_props.1215457233=%7B%22ts%22%3A1700591107199%2C%22d%22%3A%22www.zillow.com%22%2C%22h%22%3A%22%2F%22%7D; _clck=8pvrzc%7C2%7Cfgw%7C0%7C1361; _clsk=rpblzv%7C1700591108069%7C1%7C0%7Cb.clarity.ms%2Fcollect; _px3=2a2c06735d70bd3281130bbb1754724bb3ef4b19a5f5b1469efc6e485280d48d:Cj1mVuJcnLDRa6UwxUqbPti2vq4iJ6n5V0rrbB0e6G1shPGsK7XAoncbLqa/DgkVWj4IfWWaf2w3NFAbq/p/JQ==:1000:T7VUiX5xRA9fWLnpTZzR4H5p22lJEgsj8y7ayIiS1Yy7D/JO6KG+xRe/QQ//tei3GpvLOJNHudlEWGa+qrcuET3E9kgqYFiUep04mivjkNWy1piqvHYJotbXuAdnfVkFBB4cRKESbi7am3kqL/dL4BTb/vAvcPUxW4TkZlkldJBgZsckCo+n314Ni/JIfdyqHGZMzxGp4FutQ1ixgc0KFEDh2H77BHhqUwH3lg76Vu0=; JSESSIONID=9A876DAAC29D761071FF03717FE4B47B; AWSALB=7U0w7Km1UT23r+05r479rpldTzzUCmjzPYsKBnbIAagr7FnX47hFsuGKn9lnV7DHs926kcOzzpTio23XSvgPTmoLc3NhqXpzCGEKotD2zng5HhKcE5kjkPfnplHE; AWSALBCORS=7U0w7Km1UT23r+05r479rpldTzzUCmjzPYsKBnbIAagr7FnX47hFsuGKn9lnV7DHs926kcOzzpTio23XSvgPTmoLc3NhqXpzCGEKotD2zng5HhKcE5kjkPfnplHE",
+    "Cookie": "zguid=24|%24c3094722-1da0-46c3-bf20-ffad0c45e5fa; _ga=GA1.2.1085683231.1704505862; zjs_anonymous_id=%22c3094722-1da0-46c3-bf20-ffad0c45e5fa%22; zjs_user_id=null; zg_anonymous_id=%2219a51140-7c20-4bf1-9034-c019f84ddfc9%22; _pxvid=0bedea74-ac36-11ee-a0cb-6a469e1e9ec1; _gcl_au=1.1.278652768.1704505862; __pdst=a043be2f81a141eb9cdec93e3ec6abc3; _pin_unauth=dWlkPU9UZGlaV016WkRVdE1XVmxPQzAwWlRjd0xXRm1Nakl0TWpBNE1XSTFPRGs1WTJJNA; optimizelyEndUserId=oeu1706162194765r0.10879172202088117; zgcus_aeut=AEUUT_7f0edf7a-bb46-11ee-b246-ea0cdbc9a38f; zgcus_aeuut=AEUUT_7f0edf7a-bb46-11ee-b246-ea0cdbc9a38f; _gid=GA1.2.2000045317.1706162195; _clck=efzz4z%7C2%7Cfip%7C0%7C1466; zgsession=1|864606ed-4984-4b99-8991-05adac016887; DoubleClickSession=true; pxcts=cdadfaa9-bb94-11ee-80a3-5dcf5476fede; _hp2_ses_props.1215457233=%7B%22ts%22%3A1706195827830%2C%22d%22%3A%22www.zillow.com%22%2C%22h%22%3A%22%2F%22%7D; JSESSIONID=F90973DF9BD6BA67BFBD5CAD07A13ECB; search=6|1708787844964%7Crect%3D37.57767011909112%2C-122.23572108666991%2C37.530719340704096%2C-122.40360591333007%26rid%3D13699%26disp%3Dmap%26mdm%3Dauto%26p%3D1%26z%3D1%26listPriceActive%3D1%26fs%3D1%26fr%3D0%26mmm%3D0%26rs%3D0%26ah%3D0%26singlestory%3D0%26housing-connector%3D0%26abo%3D0%26garage%3D0%26pool%3D0%26ac%3D0%26waterfront%3D0%26finished%3D0%26unfinished%3D0%26cityview%3D0%26mountainview%3D0%26parkview%3D0%26waterview%3D0%26hoadata%3D1%26zillow-owned%3D0%263dhome%3D0%26featuredMultiFamilyBuilding%3D0%26student-housing%3D0%26income-restricted-housing%3D0%26military-housing%3D0%26disabled-housing%3D0%26senior-housing%3D0%26commuteMode%3Ddriving%26commuteTimeOfDay%3Dnow%09%0913699%09%7B%22isList%22%3Atrue%2C%22isMap%22%3Atrue%7D%09%09%09%09%09; x-amz-continuous-deployment-state=AYABeBNTQN5RBS1SfpOH9AO6%2FTkAPgACAAFEAB1kM2Jsa2Q0azB3azlvai5jbG91ZGZyb250Lm5ldAABRwAVRzA3MjU1NjcyMVRZRFY4RDcyVlpWAAEAAkNEABpDb29raWUAAACAAAAADBq3OBNCb8W+S8VfvQAwkT1D5OgyXtn2elVInW%2FFS7MyDBcENrMGt8dtqms01v3Zjg7pH0+1H5rg6EJXi2I+AgAAAAAMAAQAAAAAAAAAAAAAAAAAAGmXaxXs%2FPiZumVmOGgmnwj%2F%2F%2F%2F%2FAAAAAQAAAAAAAAAAAAAAAQAAAAw5RSEYGYYhn0l7yeUKHx7H9umaAavKfp4Ug+QR9umaAavKfp4Ug+QR9umaAavKfp4Ug+QR9umaAavKfp4Ug+QR; _hp2_id.1215457233=%7B%22userId%22%3A%221554419120361057%22%2C%22pageviewId%22%3A%22190210636107196%22%2C%22sessionId%22%3A%228225247830439819%22%2C%22identity%22%3Anull%2C%22trackerVersion%22%3A%224.0%22%7D; _uetsid=7fff7110bb4611eea715ffbf54c1e512; _uetvid=8ba7eb005a6511eebca6e381cf8ef374; AWSALB=PuxF2Cfs+kBFpp2Az1zItKQwbvo65KbHQji33rkjP8nmOpfKqMX67oIyuWsjpWVfoAJdn4mm1PUStwrQmg08zSQMlm75E+BQD8/6MYuiw2w1ttpZYcFr67Q81+xa; AWSALBCORS=PuxF2Cfs+kBFpp2Az1zItKQwbvo65KbHQji33rkjP8nmOpfKqMX67oIyuWsjpWVfoAJdn4mm1PUStwrQmg08zSQMlm75E+BQD8/6MYuiw2w1ttpZYcFr67Q81+xa; _clsk=19g93ha%7C1706196238901%7C5%7C0%7Cl.clarity.ms%2Fcollect; _px3=4a1da84f9df303439db6a57e67b12cd3dcc432ab1b89713a9d8c8c2822e0335a:iz7EaR9HOviKZzILGtvgK9zo8cezD0AxyRv179u/QPWVKsJs4ndWQuZFok1ffEH+AQgAv+TYxqvqIme398FdPg==:1000:PKaHV9zEf7WWybooXrGDlOiVGyg+Ctefyh72bTICmlSfCQL+AG+IbckDIbzbTH9+xB50NTwSZf6hzo9Ga5En61dZprKXjFgtspTVyGdHtgEfK0gUZHqmFQruTxguuOQRdS3CO4tTz98136wSHPWsOvcUZCkfDgEc3V8F9FV2bpP3TCGLtIm5YRvvWvt8KkDZA3ix+BJWc+6AXt6li6eW06AzeHqITEXi12uM8RTPzq0=",
     "Sec-Ch-Ua": '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
     "Sec-Ch-Ua-Mobile": "?0",
     "Sec-Ch-Ua-Platform": '"macOS"',
@@ -22,7 +22,7 @@ BASE_HEADERS = {
     "Sec-Fetch-Site": "same-origin",
     "Sec-Fetch-User": "?1",
     "Upgrade-Insecure-Requests": "1",
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
 }
 
 SLEEP_MIN = 30
@@ -31,9 +31,15 @@ SLEEP_MAX = 180
 session = requests.Session()
 
 
+def random_sleep():
+    seconds = random.randint(SLEEP_MIN, SLEEP_MAX)
+    print_msg(f"😴 sleep {seconds} seconds...")
+    time.sleep(seconds)
+
+
 def fetch_content(url: str) -> str:
     response = session.get(url, headers=BASE_HEADERS)
-    time.sleep(random.randint(SLEEP_MIN, SLEEP_MAX))
+    random_sleep()
     return response.text
 
 
@@ -46,7 +52,7 @@ def fetch_home_urls(json_data: dict, debug: bool = False) -> list:
     }
     fetch_url = BASE_URL + urlencode(parameters)
     response = session.get(fetch_url, headers=BASE_HEADERS)
-    time.sleep(random.randint(SLEEP_MIN, SLEEP_MAX))
+    random_sleep()
     data = response.json()
     results = data["cat1"]["searchResults"]["mapResults"]
     total_count = data["cat1"]["searchList"]["totalResultCount"]
